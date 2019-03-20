@@ -9,7 +9,7 @@ import dataPeople from '../mock-people.json';
 })
 export class CPeopleComponent implements OnInit {
 
-  testname = (<any>dataPeople).Group[0].Name;
+  firstPersonName = (<any>dataPeople).Group[0].Name;
   
   person1: Person = {
     id: 1,

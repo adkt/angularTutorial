@@ -6,3 +6,9 @@
 <div>
   {{firstPersonName}}
 </div>
+<div>
+  {{allPeople[0].ID}}
+</div>
+<div>
+  <p *ngFor="let currentPerson of allPeople">{{currentPerson.Name}}, {{currentPerson.ID}}</p>
+</div>

@@ -1,4 +1,4 @@
 export class Person {
   name: string;
-  id: string;
+  id: number;
 }

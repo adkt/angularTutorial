@@ -9,16 +9,18 @@ import dataPeople from '../mock-people.json';
 })
 export class CPeopleComponent implements OnInit {
 
+  allPeople = (<any>dataPeople).Group;
   firstPersonName = (<any>dataPeople).Group[0].Name;
   
   person1: Person = {
-    id: 1,
-    name: 'Windstorm'
+    name: 'Windstorm',
+    id: 1
   }
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

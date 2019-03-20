@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Person } from '../person'
 @Component({
   selector: 'app-c-people',
   templateUrl: './c-people.component.html',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CPeopleComponent implements OnInit {
 
-  cPeopleName = 'Windstorm';
+  person: Person = {
+    id: 1,
+    name: 'Windstorm'
+  }
 
   constructor() { }
 

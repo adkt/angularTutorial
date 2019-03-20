@@ -7,3 +7,9 @@ h1 {
 .menuItem {
   text-decoration: underline;
 }
+
+.mySelectedPerson
+{
+  color: magenta;
+  background-color: #777777;
+}

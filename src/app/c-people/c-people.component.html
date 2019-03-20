@@ -9,7 +9,7 @@
 </div>
 
 <div>
-  <p class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
+  <p [class.mySelectedPerson]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
     {{currentPerson.Name}}, {{currentPerson.ID}}
   </p>
 </div>

@@ -7,7 +7,7 @@ import { Person } from '../person'
 })
 export class CPeopleComponent implements OnInit {
 
-  person: Person = {
+  person1: Person = {
     id: 1,
     name: 'Windstorm'
   }

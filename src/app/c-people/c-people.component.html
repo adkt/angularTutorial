@@ -1,14 +1,15 @@
-<h1>{{person1.name}}</h1>
-<div>ID: {{person1.id}}</div>
-<div> 
-  <input [(ngModel)]="person1.name" placeholder="change the name" />
+<div *ngIf="selectedPerson">
+  <h1>{{selectedPerson.Name}}</h1>
+  <div>ID: {{selectedPerson.ID}}</div>
+  <input [(ngModel)]="selectedPerson.Name" placeholder="change the name" />
 </div>
-<div>
-  {{firstPersonName}}
-</div>
+
 <div>
   {{allPeople[0].ID}}
 </div>
+
 <div>
-  <p *ngFor="let currentPerson of allPeople">{{currentPerson.Name}}, {{currentPerson.ID}}</p>
+  <p class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
+    {{currentPerson.Name}}, {{currentPerson.ID}}
+  </p>
 </div>

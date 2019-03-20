@@ -12,10 +12,12 @@ export class CPeopleComponent implements OnInit {
   allPeople = (<any>dataPeople).Group;
   firstPersonName = (<any>dataPeople).Group[0].Name;
   
-  person1: Person = {
+  person1:Person = {
     name: 'Windstorm',
     id: 1
   }
+
+  selectedPerson:Person;
 
   constructor() { }
 
@@ -23,4 +25,7 @@ export class CPeopleComponent implements OnInit {
     
   }
 
+  onSelect (person:Person){
+    this.selectedPerson = person;
+  }
 }

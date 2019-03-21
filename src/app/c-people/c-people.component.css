@@ -8,8 +8,18 @@ h1 {
   text-decoration: underline;
 }
 
-.mySelectedPerson
-{
+.mySelectedPerson {
   color: magenta;
   background-color: #777777;
+}
+
+.personGridWrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 50px auto-fit;
+}
+
+.personGridWrapper > div {
+  background: #BBBBBB;
+  border: 2px solid #FFFFFF
 }

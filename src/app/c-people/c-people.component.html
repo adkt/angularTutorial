@@ -1,15 +1,24 @@
-<div *ngIf="selectedPerson">
-  <h1>{{selectedPerson.Name}}</h1>
-  <div>ID: {{selectedPerson.ID}}</div>
-  <input [(ngModel)]="selectedPerson.Name" placeholder="change the name" />
-</div>
+<div class="personGridWrapper">
+  
+  <div *ngIf="!selectedPerson"></div>
+  <div *ngIf="selectedPerson">
+    <h1>{{selectedPerson.Name}}</h1>
+    <div>ID: {{selectedPerson.ID}}</div>
+    <input [(ngModel)]="selectedPerson.Name" placeholder="change the name" />
+    <div>ID Starts from: {{allPeople[0].ID}}</div>
+  </div>
 
-<div>
-  {{allPeople[0].ID}}
-</div>
 
-<div>
-  <p [class.mySelectedPerson]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
-    {{currentPerson.Name}}, {{currentPerson.ID}}
-  </p>
+
+  <div>
+    <p [class.mySelectedPerson]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
+      {{currentPerson.Name}}, {{currentPerson.ID}}
+    </p>
+  </div>
+
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+
 </div>

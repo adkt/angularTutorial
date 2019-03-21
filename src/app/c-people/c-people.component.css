@@ -15,11 +15,22 @@ h1 {
 
 .personGridWrapper {
   display: grid;
+  height: 100vh;
   grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 50px auto-fit;
+  grid-template-rows: 150px;
 }
 
 .personGridWrapper > div {
   background: #BBBBBB;
   border: 2px solid #FFFFFF
+}
+
+.personHeader {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.personList {
+  grid-column-start: 2;
+  grid-column-end: 3;
 }

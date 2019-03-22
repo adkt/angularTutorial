@@ -1,7 +1,11 @@
-  <div *ngIf="!selectedPerson">no Person selected</div>
-  <div *ngIf="selectedPerson">
-    <h1>{{selectedPerson.Name}}</h1>
-    <div>ID: {{selectedPerson.ID}}</div>
-    <input [(ngModel)]="selectedPerson.Name" placeholder="change the name" />
-    <div>ID Starts from: {{allPeople[0].ID}}</div>
+  <div class="peopleDetailsContainer">
+    <div *ngIf="!selectedPerson">no Person selected</div>
+    <div *ngIf="selectedPerson">
+      <h1>{{selectedPerson.Name}}</h1>
+      <div>ID: {{selectedPerson.ID}}</div>
+      <div>
+        <input [(ngModel)]="selectedPerson.Name" placeholder="change the name" />
+      </div>
+      <div>ID Starts from: {{allPeople[0].ID}}</div>
+    </div>
   </div>

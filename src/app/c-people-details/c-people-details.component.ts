@@ -13,7 +13,8 @@ export class CPeopleDetailsComponent implements OnInit {
 
   // Here we bind the person property, declare Input Properties in the source component where it adds this components element [person]="linkedVariableNameFromSourceComponent"
   @Input() selectedPerson: Person;
-
+  @Input() allPeople;
+  
   constructor() { }
 
   ngOnInit() {

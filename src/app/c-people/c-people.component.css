@@ -3,7 +3,7 @@
 }
 
 .mySelectedPersonInMenu {
-  color: magenta;
+  color: #FFFFFF;
   background-color: #777777;
 }
 
@@ -14,17 +14,21 @@
 
 .personGridWrapper {
   display: grid;
-  height: 100vh;
-  grid-template-columns: 100px 100px 100px;
+  height: 100%;
+  grid-template-columns: 30px 200px 100px;
   grid-template-rows: 150px;
 }
 
 .personGridWrapper > div {
-  background: #BBBBBB;
   border: 2px solid #FFFFFF
 }
 
 .personList {
   grid-column-start: 2;
   grid-column-end: 3;
+}
+
+.personList > div {
+  padding: 10px;
+  cursor: pointer;
 }

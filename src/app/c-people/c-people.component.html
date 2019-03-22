@@ -1,21 +1,16 @@
-<div class="personGridWrapper">
+<div class="personGridWrapper" (click)="deselectCurrentPerson()">
   
   <!-- The line below reads assign the varaible "selectedPerson" in app-c-people-details to the variable "selectedPerson" in this component.-->
   <div class="personDetails">
-    <app-c-people-details [selectedPerson]="selectedPerson"></app-c-people-details>
+    <app-c-people-details [allPeople]="allPeople" [selectedPerson]="selectedPerson"></app-c-people-details>
   </div>
 
   <div>&nbsp;</div>
 
   <div class="personList">
-    <p [class.mySelectedPersonInMenu]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
+    <div [class.mySelectedPersonInMenu]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
       {{currentPerson.Name}}, {{currentPerson.ID}}
-    </p>
+    </div>
   </div>
 
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div><div>6</div><div>7</div><div>8</div>
 </div>

@@ -1,0 +1,10 @@
+.menuItem {
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.mySelectedPersonInMenu {
+  color: #FFFFFF;
+  background-color: #777777;
+}

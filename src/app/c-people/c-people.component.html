@@ -2,15 +2,13 @@
   
   <!-- The line below reads assign the varaible "selectedPerson" in app-c-people-details to the variable "selectedPerson" in this component.-->
   <div class="personDetails">
-    <app-c-people-details [allPeople]="allPeople" [selectedPerson]="selectedPerson"></app-c-people-details>
+    <app-c-people-details [allPeople]="allPeople" [selectedPerson]="selectedPerson" ></app-c-people-details>
   </div>
 
   <div>&nbsp;</div>
 
   <div class="personList">
-    <div [class.mySelectedPersonInMenu]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
-      {{currentPerson.Name}}, {{currentPerson.ID}}
-    </div>
+    <app-c-people-list [allPeople]="allPeople" [selectedPerson]="selectedPerson" ></app-c-people-list>
   </div>
 
 </div>

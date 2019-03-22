@@ -25,11 +25,4 @@ export class CPeopleComponent implements OnInit {
     
   }
 
-  onSelect (_person:Person){
-    this.selectedPerson = _person;
-  }
-
-  deselectCurrentPerson (){
-    //this.selectedPerson = null;
-  }
 }

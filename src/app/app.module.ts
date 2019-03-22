@@ -6,12 +6,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CPeopleComponent } from './c-people/c-people.component';
 import { CPeopleDetailsComponent } from './c-people-details/c-people-details.component';
+import { CPeopleListComponent } from './c-people-list/c-people-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CPeopleComponent,
-    CPeopleDetailsComponent
+    CPeopleDetailsComponent,
+    CPeopleListComponent
   ],
   imports: [
     BrowserModule,

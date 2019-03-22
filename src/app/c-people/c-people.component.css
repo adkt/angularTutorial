@@ -1,16 +1,15 @@
-h1 {
-  font-size: 30px;
-  color: grey;
-  font-weight: bold;
-}
-
 .menuItem {
   text-decoration: underline;
 }
 
-.mySelectedPerson {
+.mySelectedPersonInMenu {
   color: magenta;
   background-color: #777777;
+}
+
+.personDetails {
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .personGridWrapper {
@@ -23,11 +22,6 @@ h1 {
 .personGridWrapper > div {
   background: #BBBBBB;
   border: 2px solid #FFFFFF
-}
-
-.personHeader {
-  grid-column-start: 1;
-  grid-column-end: 4;
 }
 
 .personList {

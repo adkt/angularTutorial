@@ -5,11 +5,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CPeopleComponent } from './c-people/c-people.component';
+import { CPeopleDetailsComponent } from './c-people-details/c-people-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CPeopleComponent
+    CPeopleComponent,
+    CPeopleDetailsComponent
   ],
   imports: [
     BrowserModule,

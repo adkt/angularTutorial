@@ -1,17 +1,14 @@
 <div class="personGridWrapper">
   
-  <div class="personHeader" *ngIf="!selectedPerson">no Person selected</div>
-  <div class="personHeader" *ngIf="selectedPerson">
-    <h1>{{selectedPerson.Name}}</h1>
-    <div>ID: {{selectedPerson.ID}}</div>
-    <input [(ngModel)]="selectedPerson.Name" placeholder="change the name" />
-    <div>ID Starts from: {{allPeople[0].ID}}</div>
+  <!-- The line below reads assign the varaible "selectedPerson" in app-c-people-details to the variable "selectedPerson" in this component.-->
+  <div class="personDetails">
+    <app-c-people-details [selectedPerson]="selectedPerson"></app-c-people-details>
   </div>
 
   <div>&nbsp;</div>
 
   <div class="personList">
-    <p [class.mySelectedPerson]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
+    <p [class.mySelectedPersonInMenu]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson)" >
       {{currentPerson.Name}}, {{currentPerson.ID}}
     </p>
   </div>

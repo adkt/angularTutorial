@@ -4,6 +4,9 @@ import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/cor
 // added Person class for this component
 import { Person } from '../person'
 
+// Services
+import { SPersonSelectedService } from '../s-person-selected.service';
+
 @Component({
   selector: 'app-c-people-details',
   templateUrl: './c-people-details.component.html',
@@ -35,9 +38,15 @@ export class CPeopleDetailsComponent implements OnInit {
   /*** vars ***/
   private wasInside = false;
 
-  constructor( private eRef: ElementRef ) { }
+  constructor( private eRef: ElementRef, private personSelected:SPersonSelectedService ) { }
 
   ngOnInit() {
+    this.getSelectedPerson();
+  }
+
+  getSelectedPerson():void {
+    this.personSelected.getSelectedPersonFromService()
+      .subscribe( person => this.selectedPerson = person);
   }
 
 }

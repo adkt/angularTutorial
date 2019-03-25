@@ -1,3 +1,3 @@
 <div [class.mySelectedPersonInMenu]="currentPerson == selectedPerson" class="menuItem" *ngFor="let currentPerson of allPeople" (click)="onSelect(currentPerson); onClick(event);" >
-  {{currentPerson.Name}}, {{currentPerson.ID}}
+  {{currentPerson.name}}, {{currentPerson.id}}
 </div>

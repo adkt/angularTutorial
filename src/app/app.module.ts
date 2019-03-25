@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CPeopleComponent } from './c-people/c-people.component';
 import { CPeopleDetailsComponent } from './c-people-details/c-people-details.component';
 import { CPeopleListComponent } from './c-people-list/c-people-list.component';
+import { SPersonSelectedService } from './s-person-selected.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { CPeopleListComponent } from './c-people-list/c-people-list.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SPersonSelectedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,44 +2,44 @@
     "Group":
     [
       {
-        "Name": "Person1",
-        "ID": 11
+        "name": "Person1",
+        "id": 11
       },
       {
-        "Name": "Person2",
-        "ID": 12
+        "name": "Person2",
+        "id": 12
       },
       {
-        "Name": "Person3",
-        "ID": 13
+        "name": "Person3",
+        "id": 13
       },
       {
-        "Name": "Person4",
-        "ID": 14
+        "name": "Person4",
+        "id": 14
       },
       {
-        "Name": "Person5",
-        "ID": 15
+        "name": "Person5",
+        "id": 15
       },
       {
-        "Name": "Person6",
-        "ID": 16
+        "name": "Person6",
+        "v": 16
       },
       {
-        "Name": "Person7",
-        "ID": 17
+        "name": "Person7",
+        "v": 17
       },
       {
-        "Name": "Person8",
-        "ID": 18
+        "name": "Person8",
+        "id": 18
       },
       {
-        "Name": "Person9",
-        "ID": 19
+        "name": "Person9",
+        "id": 19
       },
       {
-        "Name": "Person10",
-        "ID": 20
+        "name": "Person10",
+        "id": 20
       }
     ]
 }

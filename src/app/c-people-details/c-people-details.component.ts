@@ -37,14 +37,19 @@ export class CPeopleDetailsComponent implements OnInit {
 
   /*** vars ***/
   private wasInside = false;
-
+  
   constructor( private eRef: ElementRef, private personSelectedV:VPersonSelectedService ) { }
 
   ngOnInit() {
-    this.getSelectedPerson();
+    this.subscribeSelectedPerson();
+    this.setInitialPerson();
   }
 
-  getSelectedPerson():void {
+  setInitialPerson():void {
+    this.personSelectedV.setInitialSelectedPersonV();
+  }
+
+  subscribeSelectedPerson():void {
     this.personSelectedV.getSelectedPersonV()
       .subscribe( person => this.selectedPerson = person);
   }

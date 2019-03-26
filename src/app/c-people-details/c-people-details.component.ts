@@ -41,13 +41,11 @@ export class CPeopleDetailsComponent implements OnInit {
 
   /*** vars ***/
   private wasInside = false;
-  private clickedOutsideList;
 
   constructor( private eRef: ElementRef, private $PersonSelected:$PersonSelectedService, private $ClickedOutsideList:$ClickedOutsideListService ) { }
 
   ngOnInit() {
     this.subscribeSelectedPerson();
-    this.subscribeClikedOutsideList();
     this.setInitialPerson();
   }
 
@@ -58,11 +56,6 @@ export class CPeopleDetailsComponent implements OnInit {
   subscribeSelectedPerson():void {
     this.$PersonSelected.vGetSelectedPerson()
       .subscribe( person => this.selectedPerson = person);
-  }
-
-  subscribeClikedOutsideList():void {
-    this.$ClickedOutsideList.vGetClickedOutsideListSubject()
-      .subscribe( clicked => this.clickedOutsideList = clicked);
   }
 
   notifyClickedInside():void{

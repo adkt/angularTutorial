@@ -19,26 +19,22 @@ export class CPeopleListComponent implements OnInit {
 
   @HostListener('click')
   clickInside() {
-    console.log('clicked List inside');
+    //clicked List inside
     this.wasInside = true;
   }
 
   @HostListener('document:click')
   clickOutside() {
-    if (!this.wasInside) {
-      if(this.clickedOutsideList != "OutsideListInsideDetails")
-      {
-        console.log(this.clickedOutsideList);
-        this.$PersonSelected.vSetSelectedPerson(null);
-      }
-      console.log('clicked List outside');
+    //clicked List outside
+    if (!this.wasInside && !this.clickedOutsideListButInsideDetails) {
+      this.$PersonSelected.vSetSelectedPerson(null);
     }
     this.wasInside = false;
   }
 
   /*** vars ***/
   private wasInside = false;
-  private clickedOutsideList;
+  private clickedOutsideListButInsideDetails;
 
   constructor ( private $PersonSelected:$PersonSelectedService, private $ClickedOutsideList:$ClickedOutsideListService ) { }
 
@@ -58,7 +54,7 @@ export class CPeopleListComponent implements OnInit {
 
   subscribeClikedOutsideList():void {
     this.$ClickedOutsideList.vGetClickedOutsideListSubject()
-      .subscribe( clicked => this.clickedOutsideList = clicked);
+      .subscribe( clicked => this.clickedOutsideListButInsideDetails = clicked);
   }
 
   updateClickedOutsideList(clicked:Boolean):void{

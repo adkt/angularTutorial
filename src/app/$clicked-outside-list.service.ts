@@ -7,17 +7,16 @@ export class $ClickedOutsideListService {
   constructor() { }
 
   private subject:Subject<any> = new Subject<any>();
-  private clickedOutside:Boolean = false;
 
   vGetClickedOutsideListSubject(): Subject<any> {
     return this.subject;
   }
 
   vSetClickedOutsideListInsideDetails():void {
-    this.subject.next("OutsideListInsideDetails");
+    this.subject.next(true);
   }
   
   vSetClickedOutsideDetails():void {
-    this.subject.next("OutsideDetails");
+    this.subject.next(false);
   }
 }

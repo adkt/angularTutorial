@@ -4,6 +4,7 @@ import { Person } from '../person'
 
 // Services
 import { $PersonSelectedService } from '../$person-selected.service';
+import { $ClickedOutsideListService } from '../$clicked-outside-list.service';
 
 @Component({
   selector: 'app-c-people-list',
@@ -16,10 +17,34 @@ export class CPeopleListComponent implements OnInit {
   @Input() selectedPerson: Person;
   @Input() allPeople;
 
-  constructor ( private $PersonSelected:$PersonSelectedService ) { }
+  @HostListener('click')
+  clickInside() {
+    console.log('clicked List inside');
+    this.wasInside = true;
+  }
+
+  @HostListener('document:click')
+  clickOutside() {
+    if (!this.wasInside) {
+      if(this.clickedOutsideList != "OutsideListInsideDetails")
+      {
+        console.log(this.clickedOutsideList);
+        this.$PersonSelected.vSetSelectedPerson(null);
+      }
+      console.log('clicked List outside');
+    }
+    this.wasInside = false;
+  }
+
+  /*** vars ***/
+  private wasInside = false;
+  private clickedOutsideList;
+
+  constructor ( private $PersonSelected:$PersonSelectedService, private $ClickedOutsideList:$ClickedOutsideListService ) { }
 
   ngOnInit() {
     this.subscribeSelectedPerson();
+    this.subscribeClikedOutsideList();
   }
 
   onSelect (person:Person){
@@ -29,6 +54,15 @@ export class CPeopleListComponent implements OnInit {
   subscribeSelectedPerson():void {
     this.$PersonSelected.vGetSelectedPerson()
       .subscribe( person => this.selectedPerson = person);
+  }
+
+  subscribeClikedOutsideList():void {
+    this.$ClickedOutsideList.vGetClickedOutsideListSubject()
+      .subscribe( clicked => this.clickedOutsideList = clicked);
+  }
+
+  updateClickedOutsideList(clicked:Boolean):void{
+    this.$ClickedOutsideList.vSetClickedOutsideList(clicked);
   }
 
 

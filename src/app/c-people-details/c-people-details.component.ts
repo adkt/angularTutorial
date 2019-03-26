@@ -6,6 +6,7 @@ import { Person } from '../person'
 
 // Services
 import { $PersonSelectedService } from '../$person-selected.service';
+import { $ClickedOutsideListService } from '../$clicked-outside-list.service';
 
 @Component({
   selector: 'app-c-people-details',
@@ -21,27 +22,32 @@ export class CPeopleDetailsComponent implements OnInit {
   @Input() allPeople;
 
   // HostListener listens for events then certain functions (e.g. clickout) run when the event is triggered
-   @HostListener('click')
+  @HostListener('click')
   clickInside() {
-    console.log('clicked inside');
+    console.log('clicked details inside');
     this.wasInside = true;
+    this.notifyClickedInside();
   }
   
   @HostListener('document:click')
   clickOutside() {
     if (!this.wasInside) {
-      console.log('clicked outside');
+      console.log('clicked details outside');
+      this.notifyClickedOutside();
     }
     this.wasInside = false;
+
   }
 
   /*** vars ***/
   private wasInside = false;
-  
-  constructor( private eRef: ElementRef, private $PersonSelected:$PersonSelectedService ) { }
+  private clickedOutsideList;
+
+  constructor( private eRef: ElementRef, private $PersonSelected:$PersonSelectedService, private $ClickedOutsideList:$ClickedOutsideListService ) { }
 
   ngOnInit() {
     this.subscribeSelectedPerson();
+    this.subscribeClikedOutsideList();
     this.setInitialPerson();
   }
 
@@ -52,6 +58,19 @@ export class CPeopleDetailsComponent implements OnInit {
   subscribeSelectedPerson():void {
     this.$PersonSelected.vGetSelectedPerson()
       .subscribe( person => this.selectedPerson = person);
+  }
+
+  subscribeClikedOutsideList():void {
+    this.$ClickedOutsideList.vGetClickedOutsideListSubject()
+      .subscribe( clicked => this.clickedOutsideList = clicked);
+  }
+
+  notifyClickedInside():void{
+    this.$ClickedOutsideList.vSetClickedOutsideListInsideDetails();
+  }
+
+  notifyClickedOutside():void{
+    this.$ClickedOutsideList.vSetClickedOutsideDetails();
   }
 
 }

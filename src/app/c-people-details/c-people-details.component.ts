@@ -5,7 +5,7 @@ import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/cor
 import { Person } from '../person'
 
 // Services
-import { VPersonSelectedService } from '../v-person-selected.service';
+import { $PersonSelectedService } from '../$person-selected.service';
 
 @Component({
   selector: 'app-c-people-details',
@@ -38,7 +38,7 @@ export class CPeopleDetailsComponent implements OnInit {
   /*** vars ***/
   private wasInside = false;
   
-  constructor( private eRef: ElementRef, private personSelectedV:VPersonSelectedService ) { }
+  constructor( private eRef: ElementRef, private $PersonSelected:$PersonSelectedService ) { }
 
   ngOnInit() {
     this.subscribeSelectedPerson();
@@ -46,11 +46,11 @@ export class CPeopleDetailsComponent implements OnInit {
   }
 
   setInitialPerson():void {
-    this.personSelectedV.setInitialSelectedPersonV();
+    this.$PersonSelected.vSetInitialSelectedPerson();
   }
 
   subscribeSelectedPerson():void {
-    this.personSelectedV.getSelectedPersonV()
+    this.$PersonSelected.vGetSelectedPerson()
       .subscribe( person => this.selectedPerson = person);
   }
 

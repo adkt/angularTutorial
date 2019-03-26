@@ -4,23 +4,23 @@ import { Subject } from 'rxjs';
 import { Person } from './Person'
 
 @Injectable()
-export class VPersonSelectedService {
+export class $PersonSelectedService {
 
-  private initialPerson:Person = { name: "Not really any one", id: 2};
+  private initialPerson:Person = { name: "Not really any two", id: 2};
   
   private subject:Subject<any> = new Subject<any>();
 
   constructor() { }
 
-  getSelectedPersonV(): Subject<any> {
+  vGetSelectedPerson(): Subject<any> {
     return this.subject;
   }
 
-  setSelectedPersonV( person:Person ):void {
+  vSetSelectedPerson( person:Person ):void {
     this.subject.next(person);
   }
 
-  setInitialSelectedPersonV (){
+  vSetInitialSelectedPerson (){
     this.subject.next(this.initialPerson);
   }
 

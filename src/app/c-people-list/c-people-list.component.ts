@@ -3,7 +3,7 @@ import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Outpu
 import { Person } from '../person'
 
 // Services
-import { VPersonSelectedService } from '../v-person-selected.service';
+import { $PersonSelectedService } from '../$person-selected.service';
 
 @Component({
   selector: 'app-c-people-list',
@@ -16,20 +16,18 @@ export class CPeopleListComponent implements OnInit {
   @Input() selectedPerson: Person;
   @Input() allPeople;
 
-  @Output() selectedPersonFromList = new EventEmitter<Event>();
-
-  constructor ( private personSelectedV:VPersonSelectedService ) { }
+  constructor ( private $PersonSelected:$PersonSelectedService ) { }
 
   ngOnInit() {
     this.subscribeSelectedPerson();
   }
 
   onSelect (person:Person){
-    this.personSelectedV.setSelectedPersonV(person);
+    this.$PersonSelected.vSetSelectedPerson(person);
   }
 
   subscribeSelectedPerson():void {
-    this.personSelectedV.getSelectedPersonV()
+    this.$PersonSelected.vGetSelectedPerson()
       .subscribe( person => this.selectedPerson = person);
   }
 
